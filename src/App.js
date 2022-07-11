@@ -13,6 +13,7 @@ import ChangePassword from './components/auth/ChangePassword'
 import NewItem from './routes/NewItem'
 import HomeIndex from './routes/HomeIndex'
 import ViewItem from './routes/ViewItem'
+import UpdateItem from './routes/UpdateItem'
 
 class App extends Component {
   constructor (props) {
@@ -110,6 +111,9 @@ class App extends Component {
               <ViewItem msgAlert={this.msgAlert} user={user} />
             )}
           />
+          <AuthenticatedRoute user={user} exact path='/item/:id/update' render={() => (
+            <UpdateItem msgAlert={this.msgAlert} user={user} />
+          )} />
         </main>
       </Fragment>
     )
