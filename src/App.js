@@ -97,7 +97,7 @@ class App extends Component {
               <NewItem msgAlert={this.msgAlert} user={user} />
             )}
           />
-          <Route
+          <AuthenticatedRoute
             user={user}
             exact path='/'
             render={() => (
