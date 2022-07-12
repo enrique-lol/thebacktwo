@@ -1,18 +1,15 @@
 import React, { Component, Fragment } from 'react'
 import { Redirect } from 'react-router-dom'
-import { itemCreate } from '../api/item-auth.js'
-import ItemForm from '../shared/ItemForm.js'
+import { createBay } from '../api/bay-auth.js'
+import BayForm from '../shared/BayForm.js'
 
-class NewItem extends Component {
+class CreateBay extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      item: {
-        name: '',
-        count: '',
-        notes: '',
-        clearTargetDate: '',
-        collectionId: ''
+      bay: {
+        designation: '',
+        shelfCount: ''
       },
       createdId: null
     }
@@ -21,12 +18,12 @@ class NewItem extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     const { user, msgAlert } = this.props
-    const { item } = this.state
-    itemCreate(item, user)
-      .then(res => this.setState({ createdId: res.data.item._id }))
+    const { bay } = this.state
+    createBay(bay, user)
+      .then(res => this.setState({ createdId: res.data.bay._id }))
       .then(msgAlert({
         heading: 'Success!',
-        message: 'Your item has been created ',
+        message: 'Your bay has been created ',
         variant: 'primary'
       }))
       .catch(console.error)
@@ -36,21 +33,21 @@ class NewItem extends Component {
     event.persist()
     this.setState(state => {
       return {
-        item: { ...state.item, [event.target.name]: event.target.value }
+        bay: { ...state.bay, [event.target.name]: event.target.value }
       }
     })
   }
 
   render () {
-    const { item, createdId } = this.state
+    const { bay, createdId } = this.state
     if (createdId) {
       return <Redirect to={'/'}/>
     }
     return (
       <Fragment>
-        <h1>New Item</h1>
-        <ItemForm
-          item={item}
+        <h1>New Bay</h1>
+        <BayForm
+          bay={bay}
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
         />
@@ -59,4 +56,4 @@ class NewItem extends Component {
   }
 }
 
-export default NewItem
+export default CreateBay

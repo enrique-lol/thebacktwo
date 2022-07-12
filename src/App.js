@@ -10,6 +10,7 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+import CreateBay from './routes/CreateBay'
 import NewItem from './routes/NewItem'
 import HomeIndex from './routes/HomeIndex'
 import ViewItem from './routes/ViewItem'
@@ -95,6 +96,13 @@ class App extends Component {
             path='/new-item'
             render={() => (
               <NewItem msgAlert={this.msgAlert} user={user} />
+            )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/create-bay'
+            render={() => (
+              <CreateBay msgAlert={this.msgAlert} user={user} />
             )}
           />
           <AuthenticatedRoute

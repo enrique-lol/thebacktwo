@@ -51,15 +51,17 @@ class HomeIndex extends Component {
     }
 
     const itemsJsx = item.map(item => (
-      <Link to={`/item/${item._id}`} key={item._id}>
+      <Link to={`/item/${item._id}/update`} key={item._id}>
         <article>
           <section className='top-card'>
             <img className='home-image' src={item.thumbnail}/>
           </section>
 
           <section className='bot-card'>
-            <h3 className='roboto-mono thicc-letters'>{item.title}</h3>
-            <p>{item.artist}</p>
+            <h3 className='roboto-mono thicc-letters'>{item.name}</h3>
+            <p>{item.count}</p>
+            <p>{item.notes}</p>
+            <p>{item.clearTargetDate}</p>
           </section>
         </article>
       </Link>

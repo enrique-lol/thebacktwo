@@ -4,41 +4,32 @@ const ItemForm = ({ item, handleSubmit, handleChange }) => (
   <form onSubmit={handleSubmit}>
     <input
       required
-      name="thumbnail"
+      name="name"
       type="text"
-      placeholder="Thumbnail"
-      value={item.thumbnail}
+      placeholder="What is this?"
+      value={item.name}
       onChange={handleChange}
     />
     <input
       required
-      name="title"
+      name="count"
       type="text"
-      placeholder="Title"
-      value={item.title}
+      placeholder="How many units do you have?"
+      value={item.count}
       onChange={handleChange}
     />
     <input
-      required
-      name="artist"
+      name="notes"
       type="text"
-      placeholder="Artist"
-      value={item.artist}
+      placeholder="Notes (Pile, Boxes on pallet, seasonal, origin, etc )"
+      value={item.notes}
       onChange={handleChange}
     />
     <input
-      required
-      name="priceEther"
+      name="clearTargetDate"
       type="text"
-      placeholder="price in etherium"
-      value={item.priceEther}
-      onChange={handleChange}
-    />
-    <input
-      name="collectionId"
-      type="text"
-      placeholder="Add Collection ID (opt)"
-      value={item.collectionId}
+      placeholder="optional: target clear date"
+      value={item.clearTargetDate}
       onChange={handleChange}
     />
     <button type="submit">Submit</button>
