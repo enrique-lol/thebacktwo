@@ -16,6 +16,8 @@ import HomeIndex from './routes/HomeIndex'
 import ViewItem from './routes/ViewItem'
 import UpdateItem from './routes/UpdateItem'
 import AllBay from './routes/AllBay'
+import ViewBay from './routes/ViewBay'
+import UpdateBay from './routes/UpdateBay'
 
 class App extends Component {
   constructor (props) {
@@ -127,8 +129,18 @@ class App extends Component {
               <ViewItem msgAlert={this.msgAlert} user={user} />
             )}
           />
+          <Route
+            user={user}
+            exact path='/bay/:id'
+            render={() => (
+              <ViewBay msgAlert={this.msgAlert} user={user} />
+            )}
+          />
           <AuthenticatedRoute user={user} exact path='/item/:id/update' render={() => (
             <UpdateItem msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/bay/:id/update' render={() => (
+            <UpdateBay msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>

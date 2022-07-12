@@ -55,9 +55,9 @@ class BayIndex extends Component {
     const baysJsx = bay.map(bay => (
       <Card key={bay._id}>
         <Link to={`/bay/${bay._id}`}>
-          <h3>{bay.title}</h3>
+          <h3>{bay.designation}</h3>
+          <p>{bay._id}</p>
         </Link>
-        <p>Below, are items with BayID of {bay._id}</p>
       </Card>
 
     ))
