@@ -56,7 +56,7 @@ class UpdateItem extends Component {
     if (!item) {
       return <h2>Make an Item!</h2>
     } if (updated) {
-      return <Fragment><Redirect to={`/item/${this.props.match.params.id}`}/></Fragment>
+      return <Fragment><Redirect to={'/'}/></Fragment>
     }
     return (
       <Fragment>

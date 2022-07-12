@@ -15,6 +15,7 @@ import NewItem from './routes/NewItem'
 import HomeIndex from './routes/HomeIndex'
 import ViewItem from './routes/ViewItem'
 import UpdateItem from './routes/UpdateItem'
+import AllBay from './routes/AllBay'
 
 class App extends Component {
   constructor (props) {
@@ -107,9 +108,16 @@ class App extends Component {
           />
           <AuthenticatedRoute
             user={user}
-            exact path='/'
+            exact path='/all-items'
             render={() => (
               <HomeIndex msgAlert={this.msgAlert} user={user} />
+            )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            exact path='/'
+            render={() => (
+              <AllBay msgAlert={this.msgAlert} user={user} />
             )}
           />
           <Route
