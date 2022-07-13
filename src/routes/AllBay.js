@@ -56,7 +56,7 @@ class BayIndex extends Component {
       <Card key={bay._id}>
         <Link to={`/bay/${bay._id}`}>
           <h3>{bay.designation}</h3>
-          <p>{bay._id}</p>
+          <p className='roboto-mono'>{`Shelf count: ${bay.shelfCount}`}</p>
         </Link>
       </Card>
 

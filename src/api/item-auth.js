@@ -14,6 +14,15 @@ export const homeIndex = () => {
     method: 'GET'
   })
 }
+export const itemsSelect = (bay) => {
+  return axios({
+    url: apiUrl + '/items/select',
+    method: 'GET',
+    data: {
+      bay
+    }
+  })
+}
 export const index14 = (user, loadCount) => {
   return axios({
     url: apiUrl + '/next14',

@@ -3,7 +3,7 @@ import { withRouter, Redirect, Link } from 'react-router-dom'
 import apiUrl from '../apiConfig'
 import axios from 'axios'
 import { bayView } from './../api/bay-auth.js'
-// import FutureFeature from './../components/FutureFeature/FutureFeature.js'
+import ItemsInBayList from './ItemsInBayList.js'
 
 class ViewBay extends Component {
   constructor (props) {
@@ -57,8 +57,9 @@ class ViewBay extends Component {
       bayJsx = (
         <Fragment>
           <div className='bay-main'>
-            <h2 className='roboto-mono'>{`Now Viewing Bay: ${bay.designation}`}</h2>
-            <p className='roboto-mono'>{`Bay ID: ${bay._id}`}</p>
+            <h1 className='roboto-mono'>{`Now Viewing Bay: ${bay.designation}`}</h1>
+            <h4 className='roboto-mono'>{`Bay ID: ${bay._id}`}</h4>
+            <p className='roboto-mono'>{`Shelf count: ${bay.shelfCount}`}</p>
           </div>
 
         </Fragment>
@@ -70,6 +71,7 @@ class ViewBay extends Component {
         {deleted ? <Redirect to="/"/> : bayJsx}
         <button className='a-button' onClick={this.deleteItem}>a1</button>
         <button className='a-button'><Link to={`/bay/${bay._id}/update/`}>a2</Link></button>
+        <ItemsInBayList bay={bay._id}/>
       </Fragment>
     )
   }

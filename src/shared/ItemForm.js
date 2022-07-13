@@ -32,6 +32,13 @@ const ItemForm = ({ item, handleSubmit, handleChange }) => (
       value={item.clearTargetDate}
       onChange={handleChange}
     />
+    <input
+      name="bayId"
+      type="text"
+      placeholder="Bay ID"
+      value={item.bayId}
+      onChange={handleChange}
+    />
     <button type="submit">Submit</button>
   </form>
 )

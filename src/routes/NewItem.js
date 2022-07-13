@@ -12,7 +12,7 @@ class NewItem extends Component {
         count: '',
         notes: '',
         clearTargetDate: '',
-        collectionId: ''
+        bayId: ''
       },
       createdId: null
     }
