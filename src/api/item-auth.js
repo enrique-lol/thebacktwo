@@ -15,11 +15,12 @@ export const homeIndex = () => {
   })
 }
 export const itemsSelect = (bay) => {
+  console.log(bay)
   return axios({
-    url: apiUrl + '/items/select',
+    url: apiUrl + '/items-select/',
     method: 'GET',
     data: {
-      bay
+      bay: bay
     }
   })
 }
